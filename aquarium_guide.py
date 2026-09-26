@@ -61,3 +61,39 @@ fish_database = {
        }
     ]
 }
+
+plants_and_coral = {
+    "freshwater": [
+        {
+            "name": "Java Fern",
+            "lighting":"low", 
+        },
+        {
+            "name": "Anubias",
+            "lighting":"low",
+        },
+        {
+            "name": "Amazon Swords",
+            "lighting": "moderate"
+        }
+    ],
+    "saltwater": [
+        {
+            "name": "Eelgrass",
+            "lighting":"high"
+        },
+        {
+            "name": "Chaetomorpha",
+            "lighting":"moderate"
+        },
+        {
+            "name": "Mangroves",
+            "lighting":"moderate"
+        }
+    ]
+}
+
+aquarium_equipment = {
+    "freshwater": ("tank", "filtration", "heater", "LED lighting", "substrate", "test kits", "dechlorinator"),
+    "saltwater": ("tank", "filtration", "heater", "LED lighting", "live rock/ substrate", "test kits", "protein skimmer", "circulation pump", "marine salt")
+}
