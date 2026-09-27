@@ -8,56 +8,36 @@ September 25th,2026
 fish_database = {
     "freshwater" : [
        {
-           "name": "Tetras",
-           "minimum_gallons": 20,
-           "fahrenheit": 72
+           "name": "Tetras", "minimum_gallons": 20, "fahrenheit": 72
        },
        {
-           "name": "Betta",
-           "minimum_gallons": 5,
-           "fahrenheit": 80
+           "name": "Betta", "minimum_gallons": 5, "fahrenheit": 80
        },
        {
-           "name": "Danios",
-           "minimum_gallons": 20,
-           "fahrenheit": 70
+           "name": "Danios", "minimum_gallons": 20, "fahrenheit": 70
        },
        {
-            "name": "Platys",
-            "minimum_gallons": 20,
-            "fahrenheit": 80
+            "name": "Platys", "minimum_gallons": 20, "fahrenheit": 80
        },
        {
-            "name": "Corydoras",
-            "minimum_gallons": 20,
-            "fahrenheit": 75
+            "name": "Corydoras", "minimum_gallons": 20, "fahrenheit": 75
        }
     ],
     "saltwater": [
        {
-           "name": "Clownfish",
-           "minimum_gallons": 20,
-           "Salinity": 1.025
+           "name": "Clownfish", "minimum_gallons": 20, "Salinity": 1.025
        },
        {
-           "name": "Gramma",
-           "minimum_gallons": 30,
-           "Salinity": 1.025
+           "name": "Gramma", "minimum_gallons": 30, "Salinity": 1.025
        },
        {
-           "name": "Firefish",
-           "minimum_gallons": 20,
-           "Salinity": 1.020
+           "name": "Firefish", "minimum_gallons": 20, "Salinity": 1.020
        },
        {
-            "name": "Banggai",
-            "minimum_gallons": 30,
-            "Salinity": 1.023
+            "name": "Banggai", "minimum_gallons": 30, "Salinity": 1.023
        },
        {
-            "name": "Elacatinus",
-            "minimum_gallons": 10,
-            "Salinity": 1.023
+            "name": "Elacatinus", "minimum_gallons": 10, "Salinity": 1.023
        }
     ]
 }
@@ -65,30 +45,24 @@ fish_database = {
 plants = {
     "freshwater": [
         {
-            "name": "Java Fern",
-            "lighting":"low" 
+            "name": "Java Fern", "lighting":"low" 
         },
         {
-            "name": "Anubias",
-            "lighting":"low",
+            "name": "Anubias", "lighting":"low",
         },
         {
-            "name": "Amazon Swords",
-            "lighting": "moderate"
+            "name": "Amazon Swords", "lighting": "moderate"
         }
     ],
     "saltwater": [
         {
-            "name": "Eelgrass",
-            "lighting":"high"
+            "name": "Eelgrass", "lighting":"high"
         },
         {
-            "name": "Chaetomorpha",
-            "lighting":"moderate"
+            "name": "Chaetomorpha", "lighting":"moderate"
         },
         {
-            "name": "Mangroves",
-            "lighting":"moderate"
+            "name": "Mangroves", "lighting":"moderate"
         }
     ]
 }
@@ -100,7 +74,7 @@ aquarium_equipment = {
 
 aquarium = {
     "type": "",
-    "tank_size": 0,
+    "tank size": 0,
     "budget": 0,
     "decorations": [],
     "fish": [],
@@ -153,7 +127,7 @@ def user_budget():
             print("Please enter a number.")
 
 def get_decorations(aquarium_type):
-    """gets users aquarium type, returns """
+    """users choices for freshwater or saltwater plants"""
 
     options = plants[aquarium_type]
     selected = []
@@ -184,7 +158,7 @@ def get_decorations(aquarium_type):
 
             if choice == 0:
                 break
-            elif 1 <= choice <= len(option):
+            elif 1 <= choice <= len(options):
                 selected.append(options[choice - 1])
                 print(
                     options[choice -1]["name"], "added!"
@@ -196,3 +170,16 @@ def get_decorations(aquarium_type):
             print("Please enter a number.")
 
     return selected
+
+def find_fish(aquarium):
+    """valid fish based on aquarium type and size""" 
+    aquarium_type = aquarium["type"]
+    tank_size = aquarium["tank size"]
+
+    possible_fish = []
+
+    for fish in fish_database[aquarium_type]:
+        if tank_size >= fish["minimum_gallons"]:
+            possible_fish.append(fish)
+
+    return possible_fish
