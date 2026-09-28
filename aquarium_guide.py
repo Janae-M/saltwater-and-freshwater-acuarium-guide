@@ -82,7 +82,7 @@ aquarium = {
 }
 
 def welcome_message():
-    """Welcomes users to the program"""
+
     print("\n" + "-" * 40)
     print("WELCOME TO AQUARIUM GUIDE")
     print("-" * 40)
@@ -133,7 +133,7 @@ def user_budget():
             print("Please enter a number. ")
 
 def user_decorations(aquarium_type):
-    """users choices for freshwater or saltwater plants"""
+    """users choices for freshwater or saltwater plants, allows multiple options"""
     options = plants[aquarium_type]
     selected = []
 
@@ -240,7 +240,7 @@ def user_fish_choice(aquarium):
     return selected_fish
 
 def user_equipment(aquarium_type):
-    """Retrieves needed equipment for aquarium type"""
+
     equipment = []
 
     for item in aquarium_equipment[aquarium_type]:
@@ -249,7 +249,7 @@ def user_equipment(aquarium_type):
     return equipment
 
 def calculate_cost(aquarium):
-    """calculates the total estimated cost of the users aquarium build"""
+    """calculates the total estimated cost of the users entire aquarium build"""
     tank_size = aquarium["tank size"]
 
     tank_cost = tank_size * 2
@@ -348,7 +348,7 @@ def display_plan(aquarium):
         print("This estimate is over your budget.")
 
 def advice(aquarium):
-
+    """Outputs general advice based on users selections."""
     print("\n" + "-" * 40)
     print("AQUARIUM ADVICE")
     print("-" * 40)
